@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inneke Octaviani | Operations & Reporting</title>
+  <!-- Google Fonts & Simple Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f6f2;
+      color: #2c2825;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+
+    /* Header / Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #ffffff 0%, #fefaf5 100%);
+      border-radius: 32px;
+      padding: 2rem 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.02);
+      border: 1px solid #f0eae2;
+    }
+
+    .hero-info h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #3e3a37, #7a6f66);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-info .title-tag {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #7a6f66;
+      margin-bottom: 1rem;
+      border-left: 3px solid #c7b59b;
+      padding-left: 0.75rem;
+    }
+
+    .hero-info p {
+      font-size: 1rem;
+      color: #4b4440;
+      max-width: 550px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #5c534c;
+      background: #f3efe9;
+      padding: 8px 16px;
+      border-radius: 40px;
+      transition: all 0.2s;
+    }
+
+    .contact-links a i {
+      font-size: 1rem;
+      color: #9b8979;
+    }
+
+    .contact-links a:hover {
+      background: #e9e0d6;
+      color: #3e3a37;
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      background: #ffffffea;
+      border-radius: 28px;
+      padding: 1.2rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      border: 1px solid #ede6df;
+      min-width: 200px;
+    }
+
+    .hero-stats .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #b28b6f;
+      line-height: 1;
+    }
+
+    .hero-stats p {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #6b625b;
+      letter-spacing: 0.3px;
+    }
+
+    /* section headings */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: #d9cec2;
+      border-radius: 3px;
+    }
+
+    /* grid layout for projects & experience */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: all 0.25s ease;
+      border: 1px solid #ede3da;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 28px -12px rgba(0,0,0,0.1);
+      border-color: #e2d5ca;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      color: #b39278;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #2f2b27;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0.8rem;
+    }
+
+    .badge {
+      background: #f1ece6;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #5f554c;
+      letter-spacing: 0.2px;
+    }
+
+    .highlight-text {
+      font-weight: 600;
+      color: #b28b6f;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+
+    .impact-list {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .impact-list li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .impact-list li i {
+      color: #b39278;
+      font-size: 0.8rem;
+      width: 18px;
+      margin-top: 3px;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, #e2d5ca, transparent);
+    }
+
+    .skills-section {
+      background: #fffbf7;
+      border-radius: 28px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid #ece1d8;
+    }
+
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: #ffffff;
+      border: 1px solid #e2d3c8;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #5b4f46;
+      transition: 0.1s;
+    }
+
+    .skill-tag:hover {
+      background: #f5efe9;
+      border-color: #c7b59b;
+    }
+
+    /* improvement cards specific style */
+    .improvement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .improvement-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.5rem;
+      border-left: 5px solid #b39278;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      border: 1px solid #ede3da;
+      border-left-width: 5px;
+    }
+
+    .improvement-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 12px 20px -12px rgba(0,0,0,0.08);
+    }
+
+    .improvement-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #3e3530;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .improvement-card h4 i {
+      color: #b39278;
+      font-size: 1.2rem;
+    }
+
+    .situation, .action, .impact-improve {
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .situation strong, .action strong, .impact-improve strong {
+      font-weight: 700;
+      color: #5c4c3e;
+      display: inline-block;
+      min-width: 70px;
+    }
+
+    .impact-improve {
+      border-top: 1px dashed #e9dfd6;
+      padding-top: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    /* quote / testimonial style */
+    .quote-section {
+      background: linear-gradient(135deg, #fefaf5, #fbf5ed);
+      border-radius: 28px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+      border: 1px solid #ede3da;
+    }
+
+    .quote-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #5c4c3e;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .quote-author {
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #b39278;
+    }
+
+    /* navigation dots */
+    .nav-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #ffffff;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid #ede3da;
+      color: #b39278;
+      text-decoration: none;
+    }
+
+    .nav-top:hover {
+      background: #f3efe9;
+      transform: translateY(-3px);
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #b9aea3;
+      border-top: 1px solid #e9e0d8;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-info p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-links {
+        justify-content: center;
+      }
+      .section-title:after {
+        width: 80px;
+      }
+      .nav-top {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Hero Section combining profile + CV identity -->
+  <div class="hero">
+    <div class="hero-info">
+      <h1>Inneke Octaviani</h1>
+      <div class="title-tag">Business Operations & Reporting | Turning Data into Clear Decisions</div>
+      <p>Detail-oriented professional with 11+ years of experience supporting branch operations and financial reporting. I focus on bringing structure, clarity, and efficiency into daily workflows — helping management make better decisions through clear and well-organized data.</p>
+      <div class="contact-links">
+        <a href="mailto:octaviani.inneke@gmail.com"><i class="fas fa-envelope"></i> octaviani.inneke@gmail.com</a>
+        <a href="https://id.linkedin.com/in/inneke-octaviani-497774243" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="#"><i class="fas fa-phone-alt"></i> 0896-1672-2890</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-number">11+</div>
+      <p>Years of experience<br>Accounting & Operations</p>
+      <div style="margin: 12px 0 0; font-size:0.75rem; font-weight:500;">📊 Branch Performance Monitoring</div>
+    </div>
+  </div>
+
+  <!-- Short profile / quick intro (blend of CV's 'Profil Singkat') -->
+  <div class="card" style="background:#fefaf5; margin-bottom:0.5rem;">
+    <p style="font-size:1rem; color:#4f463f;"><i class="fas fa-check-circle" style="color:#b39278; margin-right:8px;"></i> Experienced in managing comprehensive accounting functions — from balance sheet & profit/loss monitoring to cross-departmental coordination. Skilled in delivering actionable reports via Excel, Power BI, and operational analytics to support strategic decisions.</p>
+  </div>
+
+  <!-- Key Projects based on Portfolio Highlights from PDF -->
+  <div>
+    <h2 class="section-title">📌 Featured Projects & Analytical Work</h2>
+    <div class="grid-2col">
+      <!-- Proyek 1 : Proyeksi Target Profit & Analisis Skenario -->
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Profit Target Projection & Scenario Analysis</h3>
+        <div class="badge-list"><span class="badge">Forecasting</span><span class="badge">Excel Modeling</span><span class="badge">Risk Assessment</span></div>
+        <p><strong>Business question:</strong> How to set a realistic & measurable profit target based on historical data? As the lead analyst, built a profit projection model with conservative, moderate, and optimistic scenarios using P&L structure and cost assumptions. The moderate scenario was adopted as the official branch target, enabling management to anticipate risks and upside potential.</p>
+        <div class="highlight-text">🎯 Outcome: Enabled more structured and realistic target setting, helping management evaluate risks and opportunities more clearly.</div>
+      </div>
+      <!-- Proyek 2 : Dashboard Monitoring Kinerja Cabang -->
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+        <h3>Branch Performance Dashboard</h3>
+        <div class="badge-list"><span class="badge">Power BI</span><span class="badge">Interactive Viz</span><span class="badge">Operational KPIs</span></div>
+        <p>Integrated scattered operational and financial data into an interactive Power BI dashboard for real-time monitoring of revenue, expenses, and profit. Used by Branch Manager and operations team for weekly reviews. Drastically reduced report preparation time and enabled faster course corrections.</p>
+        <div class="highlight-text">📈 Impact: Faster performance reviews, clear visuals for management meetings, and improved data accessibility.</div>
+      </div>
+      <!-- Proyek 3 : Analisis Laporan Keuangan & Kontrol Biaya -->
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <h3>Financial Statement Analysis & Cost Control</h3>
+        <div class="badge-list"><span class="badge">Variance Analysis</span><span class="badge">Cost Efficiency</span><span class="badge">Operational Insights</span></div>
+        <p>Conducted routine P&L reviews and cost variance analysis to identify inefficiencies across branch operations. Collaborated directly with branch management to recommend corrective actions, resulting in optimized spending patterns and improved cost control measures without disrupting core operations.</p>
+        <div class="highlight-text">💡 Added value: Helped improve cost awareness and spending discipline across branch operations through consistent analysis and recommendations</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW SECTION: Selected Improvements (based on user request) -->
+  <div>
+    <h2 class="section-title">✨ Selected Improvements</h2>
+    <p style="margin-bottom: 0.5rem; color: #5c534c;">Process-driven enhancements that brought clarity, efficiency, and faster decisions across daily operations.</p>
+    <div class="improvement-grid">
+      <!-- Improving Reporting Clarity -->
+      <div class="improvement-card">
+        <h4><i class="fas fa-file-alt"></i> Improving Reporting Clarity</h4>
+        <div class="situation"><strong>Situation:</strong> Monthly reports were often unclear and required repeated explanations.</div>
+        <div class="action"><strong>Action:</strong> Reorganized report structure, simplified key metrics, and standardized format.</div>
+        <div class="impact-improve"><strong>Impact:</strong> Reduced miscommunication and made reporting easier to review and act on.</div>
+      </div>
+      <!-- Streamlining Task Coordination -->
+      <div class="improvement-card">
+        <h4><i class="fas fa-tasks"></i> Streamlining Task Coordination</h4>
+        <div class="situation"><strong>Situation:</strong> Ongoing tasks across teams were not centrally tracked, causing missed follow-ups.</div>
+        <div class="action"><strong>Action:</strong> Created a simple tracking system to monitor progress and deadlines.</div>
+        <div class="impact-improve"><strong>Impact:</strong> Improved visibility, reduced delays, and ensured smoother execution.</div>
+      </div>
+      <!-- Making Data More Usable -->
+      <div class="improvement-card">
+        <h4><i class="fas fa-database"></i> Making Data More Usable</h4>
+        <div class="situation"><strong>Situation:</strong> Raw operational data was inconsistent and difficult to use.</div>
+        <div class="action"><strong>Action:</strong> Cleaned and structured data into a more organized format for reporting.</div>
+        <div class="impact-improve"><strong>Impact:</strong> Increased data accuracy and made reporting faster and more reliable.</div>
+      </div>
+      <!-- Supporting Faster Decision-Making -->
+      <div class="improvement-card">
+        <h4><i class="fas fa-gauge-high"></i> Supporting Faster Decision-Making</h4>
+        <div class="situation"><strong>Situation:</strong> Management needed quick insights but data was not always ready or clear.</div>
+        <div class="action"><strong>Action:</strong> Prepared structured summaries and highlighted key variances.</div>
+        <div class="impact-improve"><strong>Impact:</strong> Helped speed up decision-making with clearer and more focused information.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Experience (detailed from CV) -->
+  <div>
+    <h2 class="section-title">💼 Work Experience</h2>
+    <div class="grid-2col">
+      <div class="card">
+        <h3><i class="fas fa-building"></i> Secretary to Branch Manager</h3>
+        <p style="font-weight:500; color:#6f6259;">PT Indomarco Prismatama (Indomaret) – Purwakarta Branch | 2019 – Present</p>
+        <ul class="impact-list">
+          <li><i class="fas fa-chart-line"></i> Prepare routine operational & management reports using Microsoft Excel (pivot, formulas, Power Query).</li>
+          <li><i class="fas fa-database"></i> Compile cross-departmental data for branch performance monitoring and executive summaries.</li>
+          <li><i class="fas fa-lightbulb"></i> Assist leadership with concise financial and operational data analysis for decision-making.</li>
+          <li><i class="fas fa-folder-open"></i> Maintain well-documented archives and ensure data accuracy across finance & operations teams.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-calculator"></i> Accounting Officer – Retail Accounting</h3>
+        <p style="font-weight:500; color:#6f6259;">PT Indomarco Prismatama – Purwakarta Branch | 2014 – 2019</p>
+        <ul class="impact-list">
+          <li><i class="fas fa-balance-scale"></i> Full-cycle retail accounting: monitored Balance Sheet & Branch P&L, daily transaction records.</li>
+          <li><i class="fas fa-exchange-alt"></i> Performed account reconciliation and variance analysis on revenue and expenses.</li>
+          <li><i class="fas fa-file-excel"></i> Compiled Excel-based financial statements and operational reports for HQ reviews.</li>
+          <li><i class="fas fa-chart-pie"></i> Supported branch in identifying cost deviations and implementing corrective measures.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills & Expertise (detailed from CV) -->
+  <div class="skills-section">
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 0.5rem;"><i class="fas fa-code-branch"></i> Core Expertise & Tools</h3>
+    <div class="skills-flex">
+      <span class="skill-tag">Retail Accounting & Financial Reporting</span>
+      <span class="skill-tag">Balance Sheet & P&L Monitoring</span>
+      <span class="skill-tag">Reconciliation & Variance Analysis</span>
+      <span class="skill-tag">Microsoft Excel Advanced (Pivot, Lookup, Power Query)</span>
+      <span class="skill-tag">Power BI Dashboards</span>
+      <span class="skill-tag">Cross-Departmental Coordination</span>
+      <span class="skill-tag">Operational Data Analysis</span>
+      <span class="skill-tag">Cost Control & Efficiency Insights</span>
+      <span class="skill-tag">Administration & Documentation</span>
+    </div>
+    <div style="margin-top: 1.5rem; border-left: 3px solid #decbb8; padding-left: 1rem;">
+      <p style="font-size: 0.9rem;"><strong>📘 Education:</strong> SMK Negeri 1 Purwakarta – Electrical Industry (2012) <br> complemented by 11+ years of hands-on accounting & operational leadership.</p>
+    </div>
+  </div>
+
+ 
+  <!-- Additional value: how I work / next direction (refined from your original concept but aligned with CV) -->
+  <div class="grid-2col">
+    <div class="card">
+      <h3><i class="fas fa-users"></i> How I Work</h3>
+      <p>I work by bringing structure and clarity into complex workflows. Whether preparing reports, analyzing variances, or coordinating across teams, I focus on making information easier to understand and act on. I'm most engaged when I can turn scattered data into insights that help operations run better.</p>
+      <div class="badge-list" style="margin-top:12px;">
+        <span class="badge">Structured problem solving</span>
+        <span class="badge">High attention to detail</span>
+        <span class="badge">Business acumen</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-chart-simple"></i> Next Direction</h3>
+      <p style="margin-bottom: 0.5rem; color: #6f6259;">Roles I'm currently exploring:</p>
+      <ul class="impact-list">
+        <li><i class="fas fa-building"></i> Business Operations Analyst</li>
+        <li><i class="fas fa-chart-pie"></i> Cost Control & Reporting Specialist</li>
+        <li><i class="fas fa-tasks"></i> Operations / Project Coordinator</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Short highlight from Portfolio: Project Management mindset -->
+  <div style="background: #ffffff; border-radius: 24px; padding: 1.4rem 1.8rem; margin: 1.5rem 0; border: 1px solid #f0e3d9;">
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+      <div>
+        <i class="fas fa-chart-line" style="font-size: 1.6rem; color:#b39278;"></i>
+        <strong style="font-size: 1.1rem; margin-left: 6px;">Portfolio Highlights snapshot:</strong> 
+        <span style="color:#5c534c;">✅ Profit Projection Models & Scenario Planning  |  ✅ Power BI Interactive Dashboards  |  ✅ Cost Efficiency & Variance Reviews</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <i class="fas fa-chart-simple"></i> Built with intention — combining 11+ years of accounting & operational excellence | Data-driven decision support | Clean, structured portfolio
+  </div>
+</div>
+
+<!-- Back to Top Button -->
+<a href="#" class="nav-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script>
+  // Smooth scroll for back to top
+  const backToTop = document.getElementById('backToTop');
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
