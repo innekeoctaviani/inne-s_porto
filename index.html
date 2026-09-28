@@ -4,43 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inneke Octaviani | Operations & Reporting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #0f0d0b;
-      --bg2: #141210;
-      --bg3: #1a1714;
-      --surface: #211e1a;
-      --surface2: #2a2520;
+      --bg: #0f0d0b; --bg2: #141210; --bg3: #1a1714;
+      --surface: #211e1a; --surface2: #2a2520;
       --border: rgba(255, 220, 170, 0.08);
       --border2: rgba(255, 220, 170, 0.14);
-      --glow: #c8733a;
-      --glow2: #e8956a;
-      --gold: #d4a574;
-      --gold2: #f0c896;
-      --text: #ede0d0;
-      --text2: #b8a898;
-      --text3: #7a6e62;
+      --glow: #c8733a; --glow2: #e8956a;
+      --gold: #d4a574; --gold2: #f0c896;
+      --text: #ede0d0; --text2: #b8a898; --text3: #7a6e62;
       --serif: 'Lora', Georgia, serif;
-      --sans: 'Figtree', sans-serif;
+      --sans: 'Figtree', system-ui, sans-serif;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    
     body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.7;
-      cursor: default;
+      font-family: var(--sans); background: var(--bg); color: var(--text);
+      font-size: 15px; line-height: 1.7;
     }
-
-    /* Grain overlay */
     body::before {
-      content: '';
-      position: fixed; inset: 0;
+      content: ''; position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 999; opacity: 0.6;
     }
@@ -48,114 +34,83 @@
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      height: 56px;
+      padding: 0 clamp(1.5rem, 5vw, 4rem); height: 56px;
       display: flex; align-items: center; justify-content: space-between;
       background: rgba(15, 13, 11, 0.85);
-      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-name {
-      font-family: var(--serif);
-      font-size: 16px;
-      color: var(--gold);
-      letter-spacing: 0.01em;
-    }
+    .nav-name { font-family: var(--serif); font-size: 16px; color: var(--gold); }
     .nav-links { display: flex; gap: 26px; list-style: none; }
     .nav-links a {
-      font-size: 12.5px; font-weight: 500;
-      color: var(--text3);
-      text-decoration: none;
-      letter-spacing: 0.05em; text-transform: uppercase;
+      font-size: 12.5px; font-weight: 500; color: var(--text3);
+      text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--gold); }
 
     /* LAYOUT */
     main { padding-top: 56px; }
-    section { padding: clamp(3.5rem, 9vw, 6.5rem) clamp(1.5rem, 7vw, 5rem); }
-    .inner { max-width: 820px; margin: 0 auto; }
+    section {
+      padding: clamp(3.5rem, 9vw, 6.5rem) clamp(1.5rem, 7vw, 5rem);
+      scroll-margin-top: 56px;
+    }
+    .inner { max-width: 820px; margin: 0 auto; width: 100%; }
 
     /* HERO */
     .hero {
       min-height: calc(100vh - 56px);
       display: flex; align-items: center;
-      background: var(--bg2);
-      position: relative; overflow: hidden;
+      background: var(--bg2); position: relative; overflow: hidden;
     }
-    .hero-orb {
-      position: absolute; border-radius: 50%;
-      pointer-events: none; filter: blur(80px);
-    }
+    .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); }
     .orb1 {
-      width: 500px; height: 500px;
-      top: -120px; right: -100px;
+      width: 500px; height: 500px; top: -120px; right: -100px;
       background: radial-gradient(circle, rgba(200, 115, 58, 0.18) 0%, transparent 65%);
     }
     .orb2 {
-      width: 300px; height: 300px;
-      bottom: -60px; left: -60px;
+      width: 300px; height: 300px; bottom: -60px; left: -60px;
       background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 65%);
     }
     .hero-inner { position: relative; z-index: 1; }
-
     .available {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 500;
-      color: #7ac99a; margin-bottom: 22px;
+      font-size: 12px; font-weight: 500; color: #7ac99a; margin-bottom: 22px;
     }
     .available-dot {
       width: 7px; height: 7px; border-radius: 50%;
-      background: #7ac99a;
-      box-shadow: 0 0 8px #7ac99a;
+      background: #7ac99a; box-shadow: 0 0 8px #7ac99a;
       animation: blink 2s infinite;
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
     .hero-eyebrow {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--glow); margin-bottom: 14px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--glow); margin-bottom: 14px;
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.8rem, 8vw, 5rem);
-      font-weight: 500; line-height: 1.08;
-      letter-spacing: -0.02em; color: var(--text);
-      margin-bottom: 8px;
+      font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 500; line-height: 1.08;
+      letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px;
     }
     .hero h1 em { font-style: italic; color: var(--gold); }
     .hero-sub {
-      font-size: clamp(14px, 2vw, 16px);
-      color: var(--text2); max-width: 520px;
+      font-size: clamp(14px, 2vw, 16px); color: var(--text2); max-width: 520px;
       margin: 18px 0 32px; font-weight: 300; line-height: 1.75;
     }
-
     .hero-numbers {
-      display: flex; gap: 0; margin: 32px 0;
-      border: 1px solid var(--border2);
-      border-radius: 6px; overflow: hidden; max-width: 420px;
+      display: flex; margin: 32px 0;
+      border: 1px solid var(--border2); border-radius: 6px;
+      overflow: hidden; max-width: 420px;
     }
-    .hero-num {
-      flex: 1; padding: 16px 18px;
-      border-right: 1px solid var(--border2);
-      text-align: center;
-    }
+    .hero-num { flex: 1; padding: 16px 18px; border-right: 1px solid var(--border2); text-align: center; }
     .hero-num:last-child { border-right: none; }
-    .num-val {
-      font-family: var(--serif);
-      font-size: 1.9rem; color: var(--gold2);
-      line-height: 1; font-style: italic;
-    }
+    .num-val { font-family: var(--serif); font-size: 1.9rem; color: var(--gold2); line-height: 1; font-style: italic; }
     .num-label { font-size: 11px; color: var(--text3); margin-top: 4px; letter-spacing: 0.04em; }
-
     .hero-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
     .h-btn {
       display: inline-flex; align-items: center; gap: 7px;
-      font-size: 13px; font-weight: 500;
-      padding: 10px 20px; border-radius: 4px;
-      text-decoration: none; transition: all 0.2s;
-      letter-spacing: 0.02em;
+      font-size: 13px; font-weight: 500; padding: 10px 20px; border-radius: 4px;
+      text-decoration: none; transition: all 0.2s; letter-spacing: 0.02em;
     }
     .h-btn.warm { background: var(--glow); color: #0f0d0b; }
     .h-btn.warm:hover { background: var(--glow2); }
@@ -164,44 +119,33 @@
 
     /* SECTION HEADERS */
     .s-tag {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--glow); margin-bottom: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--glow); margin-bottom: 8px;
     }
     .s-title {
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 4vw, 2.1rem);
-      font-weight: 500; font-style: italic;
-      line-height: 1.2; color: var(--text);
-      margin-bottom: 2.2rem;
+      font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 500; font-style: italic; line-height: 1.2;
+      color: var(--text); margin-bottom: 2.2rem;
     }
 
     /* SKILLS */
     .skills-sec { background: var(--bg3); }
     .skills-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
       border-radius: 6px; overflow: hidden;
     }
-    .sk {
-      padding: 20px 22px; background: var(--bg3);
-      transition: background 0.2s;
-    }
+    .sk { padding: 20px 22px; background: var(--bg3); transition: background 0.2s; }
     .sk:hover { background: var(--surface); }
-    .sk-name {
-      font-size: 13.5px; font-weight: 600;
-      color: var(--text); margin-bottom: 5px;
-    }
+    .sk-name { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
     .sk-sub { font-size: 12px; color: var(--text3); line-height: 1.45; }
 
     /* PROJECTS */
     .proj-sec { background: var(--bg2); }
     .proj-card {
-      padding: 28px 30px; border: 1px solid var(--border);
-      border-radius: 6px; margin-bottom: 14px;
-      background: var(--surface); position: relative; overflow: hidden;
+      padding: 28px 30px; border: 1px solid var(--border); border-radius: 6px;
+      margin-bottom: 14px; background: var(--surface);
+      position: relative; overflow: hidden;
       transition: border-color 0.25s, transform 0.2s;
     }
     .proj-card::after {
@@ -212,63 +156,31 @@
     .proj-card:hover { border-color: rgba(200, 115, 58, 0.35); transform: translateY(-2px); }
     .proj-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 13px; }
     .chip {
-      font-size: 11px; font-weight: 500;
-      padding: 3px 10px; border-radius: 20px;
-      background: rgba(200, 115, 58, 0.12);
-      border: 1px solid rgba(200, 115, 58, 0.2);
+      font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px;
+      background: rgba(200, 115, 58, 0.12); border: 1px solid rgba(200, 115, 58, 0.2);
       color: var(--glow2); letter-spacing: 0.02em;
     }
-    .proj-name {
-      font-family: var(--serif);
-      font-size: 1.15rem; font-weight: 500;
-      color: var(--text); margin-bottom: 9px;
-    }
+    .proj-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--text); margin-bottom: 9px; }
     .proj-body { font-size: 13.5px; color: var(--text2); line-height: 1.7; margin-bottom: 12px; }
-    .proj-result {
-      font-size: 13px; font-weight: 500;
-      color: var(--gold); display: flex; gap: 8px; align-items: flex-start;
-    }
+    .proj-result { font-size: 13px; font-weight: 500; color: var(--gold); display: flex; gap: 8px; align-items: flex-start; }
     .proj-result::before { content: '↳'; flex-shrink: 0; color: var(--glow); }
 
     /* IMPROVEMENTS */
     .imp-sec { background: var(--bg3); }
-    .imp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+    /* auto-fill: satu kartu tidak lagi melebar penuh */
+    .imp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
     .imp-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 6px; padding: 22px 20px;
-      transition: border-color 0.2s;
+      border-radius: 6px; padding: 22px 20px; transition: border-color 0.2s;
     }
     .imp-card:hover { border-color: var(--border2); }
-    .imp-n {
-      font-family: var(--serif); font-style: italic;
-      font-size: 2rem; color: rgba(200, 115, 58, 0.2);
-      line-height: 1; margin-bottom: 10px;
-    }
+    .imp-n { font-family: var(--serif); font-style: italic; font-size: 2rem; color: rgba(200, 115, 58, 0.2); line-height: 1; margin-bottom: 10px; }
     .imp-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
     .imp-row { font-size: 12.5px; color: var(--text2); margin-bottom: 7px; line-height: 1.55; }
     .imp-lbl {
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--text3); display: block; margin-bottom: 2px;
     }
-
-    /* CV */
-    .cv-sec { background: var(--bg3); border-top: 1px solid var(--border); }
-    .cv-stack { display: flex; flex-direction: column; gap: 12px; max-width: 480px; }
-    .cv-card {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 22px; border: 1px solid var(--border2);
-      border-radius: 6px; background: var(--surface);
-      text-decoration: none; cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
-    }
-    .cv-card:hover {
-      background: var(--surface2);
-      border-color: rgba(200, 115, 58, 0.3);
-      transform: translateX(5px);
-    }
-    .cv-card-title { font-size: 14.5px; font-weight: 500; color: var(--text); }
-    .cv-card-icon { color: var(--glow); font-size: 18px; flex-shrink: 0; }
 
     /* FOOTER */
     footer {
@@ -280,41 +192,39 @@
     .ft-name { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold); }
     .ft-note { font-size: 12px; color: var(--text3); }
 
-    /* RESPONSIVE */
-    @media(max-width: 580px) {
-      .nav-links { display: none; }
+    /* RESPONSIVE: nav tetap tampil di mobile */
+    @media (max-width: 580px) {
+      nav { justify-content: center; }
+      .nav-name { display: none; }
+      .nav-links { gap: 20px; }
       .hero-numbers { max-width: 100%; }
+      .proj-card { padding: 22px 20px; }
     }
 
     /* ENTRANCE ANIMATIONS */
-    .fade-up {
-      opacity: 0; transform: translateY(22px);
-      animation: fadeUp 0.7s ease forwards;
-    }
+    .fade-up { opacity: 0; transform: translateY(22px); animation: fadeUp 0.7s ease forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: none; } }
-    .d1 { animation-delay: 0.1s; }
-    .d2 { animation-delay: 0.2s; }
-    .d3 { animation-delay: 0.3s; }
-    .d4 { animation-delay: 0.4s; }
-    .d5 { animation-delay: 0.55s; }
-    .d6 { animation-delay: 0.7s; }
+    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; }
+    .d4 { animation-delay: 0.4s; } .d5 { animation-delay: 0.55s; } .d6 { animation-delay: 0.7s; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-up { animation: none; opacity: 1; transform: none; }
+      .available-dot { animation: none; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav>
     <div class="nav-name">Inneke Octaviani</div>
     <ul class="nav-links">
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#improvements">Improvements</a></li>
-      <li><a href="#cv">CV</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-orb orb1"></div>
       <div class="hero-orb orb2"></div>
@@ -326,7 +236,7 @@
         <p class="hero-eyebrow fade-up d2">Operations · Reporting · Administration</p>
         <h1 class="fade-up d3">Inneke<br><em>Octaviani</em></h1>
         <p class="hero-sub fade-up d4">Turning scattered data into clear decisions — 12 years of hands-on accounting, reporting, and operational excellence at PT Indomarco Prismatama.</p>
-        
+
         <div class="hero-numbers fade-up d5">
           <div class="hero-num">
             <div class="num-val">12+</div>
@@ -337,20 +247,19 @@
             <div class="num-label">Accounting</div>
           </div>
           <div class="hero-num">
-            <div class="num-val">3</div>
-            <div class="num-label">Key Skills</div>
+            <div class="num-val">6</div>
+            <div class="num-label">Core Skills</div>
           </div>
         </div>
 
         <div class="hero-links fade-up d6">
           <a href="mailto:octaviani.inneke@gmail.com" class="h-btn warm">✉ Email Me</a>
-          <a href="https://id.linkedin.com/in/inneke-octaviani-497774243" target="_blank" class="h-btn ghost">LinkedIn ↗</a>
+          <a href="https://id.linkedin.com/in/inneke-octaviani-497774243" target="_blank" rel="noopener noreferrer" class="h-btn ghost">LinkedIn ↗</a>
           <a href="tel:+6289616722890" class="h-btn ghost">0896-1672-2890</a>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section class="skills-sec" id="skills">
       <div class="inner">
         <p class="s-tag">What I know</p>
@@ -358,7 +267,7 @@
         <div class="skills-wrap">
           <div class="sk">
             <div class="sk-name">Retail Accounting</div>
-            <div class="sk-sub">Balance Sheet, P&L, reconciliation, variance analysis</div>
+            <div class="sk-sub">Balance Sheet, P&amp;L, reconciliation, variance analysis</div>
           </div>
           <div class="sk">
             <div class="sk-name">Reporting &amp; Analysis</div>
@@ -384,7 +293,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="proj-sec" id="projects">
       <div class="inner">
         <p class="s-tag">Featured work</p>
@@ -397,7 +305,7 @@
             <span class="chip">Risk Assessment</span>
           </div>
           <h3 class="proj-name">Profit Target Projection &amp; Scenario Analysis</h3>
-          <p class="proj-body">Built a multi-scenario profit projection model (conservative, moderate, optimistic) using P&L structure and historical cost assumptions. The moderate scenario was formally adopted as the branch's official annual target.</p>
+          <p class="proj-body">Built a multi-scenario profit projection model (conservative, moderate, optimistic) using P&amp;L structure and historical cost assumptions. The moderate scenario was formally adopted as the branch's official annual target.</p>
           <p class="proj-result">Enabled structured, data-backed target setting that replaced subjective estimations across branch leadership.</p>
         </div>
 
@@ -419,13 +327,12 @@
             <span class="chip">Operational Insights</span>
           </div>
           <h3 class="proj-name">Financial Statement Analysis &amp; Cost Control</h3>
-          <p class="proj-body">Conducted routine P&L reviews and cost variance analysis to surface inefficiencies across branch operations. Worked directly with branch management to recommend and implement corrective measures.</p>
+          <p class="proj-body">Conducted routine P&amp;L reviews and cost variance analysis to surface inefficiencies across branch operations. Worked directly with branch management to recommend and implement corrective measures.</p>
           <p class="proj-result">Identified recurring cost deviations that, once addressed, contributed to measurable improvement in branch margin consistency.</p>
         </div>
       </div>
     </section>
 
-    <!-- IMPROVEMENTS -->
     <section class="imp-sec" id="improvements">
       <div class="inner">
         <p class="s-tag">Process Improvements</p>
@@ -446,23 +353,8 @@
         </div>
       </div>
     </section>
-
-    <!-- CV -->
-    <section class="cv-sec" id="cv">
-      <div class="inner">
-        <p class="s-tag">Curriculum Vitae</p>
-        <h2 class="s-title">Download Resume</h2>
-        <div class="cv-stack">
-          <a href="#" class="cv-card">
-            <span class="cv-card-title">Download Formal CV (PDF)</span>
-            <span class="cv-card-icon">↓</span>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="ft-name">Inneke Octaviani</div>
     <div class="ft-note">© 2026 Inneke Octaviani. All rights reserved.</div>
